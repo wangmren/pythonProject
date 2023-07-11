@@ -10,9 +10,9 @@ class MaoyanMysqlSpider(scrapy.Spider):
     def start_requests(self):
 
         for offset in range(0, 91, 10):
-            url = 'https://www.maoyan.com/board/4?offset={}'.format(offset)
+            url = "https://www.maoyan.com/board/4?offset={}".format(offset)
         # 交给调度器
-        yield scrapy.Request(url=url, callback=self.parse)
+            yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
         print(response)
