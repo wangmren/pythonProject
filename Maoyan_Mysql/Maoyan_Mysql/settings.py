@@ -12,12 +12,22 @@ BOT_NAME = "Maoyan_Mysql"
 SPIDER_MODULES = ["Maoyan_Mysql.spiders"]
 NEWSPIDER_MODULE = "Maoyan_Mysql.spiders"
 
+#日志权限
+LOG_LEVEL='WARNING'
+#定义mysql的相关变量
+MYSQL_HOST='127.0.0.1'
+MYSQL_USER='root'
+MYSQL_PWD='123456'
+MYSQL_DB='maoyandb'
+MYSQL_CHAR='utf8'
+#在保存json格式的文件时需要 处理字符集
+FEED_EXPORT_ENCODING='utf-8'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "Maoyan_Mysql (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -62,9 +72,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "Maoyan_Mysql.pipelines.MaoyanMysqlPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "Maoyan_Mysql.pipelines.MaoyanMysqlPipeline": 300,
+   'Maoyan_Mysql.pipelines.Maoyan_MysqlPipenline':500,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
