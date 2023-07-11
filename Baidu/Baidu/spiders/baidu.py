@@ -1,6 +1,5 @@
 import scrapy
-
-
+from lxml import etree
 class BaiduSpider(scrapy.Spider):
     name = "baidu"
     allowed_domains = ["www.baidu.com"]
