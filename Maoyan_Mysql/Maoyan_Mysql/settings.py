@@ -1,4 +1,4 @@
-# Scrapy settings for Maoyan2 project
+# Scrapy settings for Maoyan_Mysql project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,21 +7,17 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "Maoyan2"
+BOT_NAME = "Maoyan_Mysql"
 
-SPIDER_MODULES = ["Maoyan2.spiders"]
-NEWSPIDER_MODULE = "Maoyan2.spiders"
-#添加权限
-LOG_LEVEL='WARNING'
-ITEM_PIPELINES = {
-'Maoyan2.pipelines.Maoyan2Pipeline': 300,
-}
+SPIDER_MODULES = ["Maoyan_Mysql.spiders"]
+NEWSPIDER_MODULE = "Maoyan_Mysql.spiders"
+
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = "Maoyan2 (+http://www.yourdomain.com)"
+#USER_AGENT = "Maoyan_Mysql (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = False
+ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -49,13 +45,13 @@ ROBOTSTXT_OBEY = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    "Maoyan2.middlewares.Maoyan2SpiderMiddleware": 543,
+#    "Maoyan_Mysql.middlewares.MaoyanMysqlSpiderMiddleware": 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    "Maoyan2.middlewares.Maoyan2DownloaderMiddleware": 543,
+#    "Maoyan_Mysql.middlewares.MaoyanMysqlDownloaderMiddleware": 543,
 #}
 
 # Enable or disable extensions
@@ -67,7 +63,7 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "Maoyan2.pipelines.Maoyan2Pipeline": 300,
+#    "Maoyan_Mysql.pipelines.MaoyanMysqlPipeline": 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
