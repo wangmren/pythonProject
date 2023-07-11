@@ -11,7 +11,11 @@ BOT_NAME = "Maoyan2"
 
 SPIDER_MODULES = ["Maoyan2.spiders"]
 NEWSPIDER_MODULE = "Maoyan2.spiders"
-
+#添加权限
+LOG_LEVEL='WARNING'
+ITEM_PIPELINES = {
+'Maoyan2.pipelines.Maoyan2Pipeline': 300,
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "Maoyan2 (+http://www.yourdomain.com)"
