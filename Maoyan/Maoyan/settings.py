@@ -11,13 +11,20 @@ BOT_NAME = "Maoyan"
 
 SPIDER_MODULES = ["Maoyan.spiders"]
 NEWSPIDER_MODULE = "Maoyan.spiders"
+#添加 日志权限
+LOG_LEVEL='WARNING'
+ROBOTSTXT_OBEY = False
+ITEM_PIPELINES = {
+'Maoyan.pipelines.MaoyanPipeline': 300,
+}
+
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "Maoyan (+http://www.yourdomain.com)"
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
