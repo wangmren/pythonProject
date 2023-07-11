@@ -14,27 +14,27 @@ class MaoyanMysqlSpider(scrapy.Spider):
         # 交给调度器
         yield scrapy.Request(url=url, callback=self.parse)
 
-        def parse(self, response):
-            print(response)
+    def parse(self, response):
+        print(response)
 
-            # 加载items对象
-            item = MaoyanMysqlItem()
-            # 获取电影列表
-            dd_list = response.xpath('//dl[@class="board-wrapper"]/dd')
-            # 遍历list 解析
-            for dd in dd_list:
-                item['name'] = dd.xpath('./a/@title').get().strip()
-                item['star'] = dd.xpath('.//p[@class="star"]/text()').get().strip()
-                # item['time'] =dd.xpath('.//p[@class="releasetime"]/text()').get().strip()
-                time = dd.xpath('.//p[@class="releasetime"]/text()').get().strip()[5:].split('(')[0]
-                # item['time']=(len(time)<10 and time+'-01' or time)#三目的写法 只能添加一个 - 01
-                item['time'] = self.zhengli(time)
-                yield item
+        # 加载items对象
+        item = MaoyanMysqlItem()
+        # 获取电影列表
+        dd_list = response.xpath('//dl[@class="board-wrapper"]/dd')
+        # 遍历list 解析
+        for dd in dd_list:
+            item['name'] = dd.xpath('./a/@title').get().strip()
+            item['star'] = dd.xpath('.//p[@class="star"]/text()').get().strip()
+            # item['time'] =dd.xpath('.//p[@class="releasetime"]/text()').get().strip()
+            time = dd.xpath('.//p[@class="releasetime"]/text()').get().strip()[5:].split('(')[0]
+            # item['time']=(len(time)<10 and time+'-01' or time)#三目的写法 只能添加一个 - 01
+            item['time'] = self.zhengli(time)
+            yield item
 
-        def zhengli(self, time):
-            if len(time) < 10:
-                time = time + '-01'
+    def zhengli(self, time):
+        if len(time) < 10:
+             time = time + '-01'
 
-                time = self.zhengli(time)
-            return time
+             time = self.zhengli(time)
+        return time
 
