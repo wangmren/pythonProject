@@ -22,25 +22,27 @@ class Maoyan_MysqlPipenline(object):
         self.db=pymysql.connect(
             host=MYSQL_HOST,
             user=MYSQL_USER,
+            port=3306,
             password=MYSQL_PWD,
             database=MYSQL_DB,
             charset=MYSQL_CHAR
         )
         self.cursor=self.db.cursor()
 
-        #爬虫项目结束时运行的函数
-
-    def close_spider(self,spider):
+    #爬虫项目结束时运行的函数
+    def close_spider(self, spider):
         print('我是close_spider函数的输出')
-        #用于断开数据库的链接
+        # 用于断开数据库的链接
         self.cursor.close()
         self.db.close()
-        #爬虫管道类必须要有的函数
 
-    def process_item(self,item,spider):
-        ins='insert into maoyantab values(%s,%s,%s)'
-        L=[item['name'],item['star'],item['time']]
-        self.cursor.execute(ins,L)
+    # 爬虫管道类必须要有的函数
+    def process_item(self, item, spider):
+        ins = 'insert into maoyantab values(%s,%s,%s)'
+
+        L = [item['name'], item['star'], item['time']]
+        self.cursor.execute(ins, L)
         self.db.commit()
-        #一定要有 返回item的语句!!!!!!!!!
+        # 一定要有 返回item的语句!!!!!!!!!
         return item
+
