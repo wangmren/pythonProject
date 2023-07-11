@@ -10,13 +10,12 @@ class MaoyanMysqlSpider(scrapy.Spider):
     def start_requests(self):
 
         for offset in range(0, 91, 10):
-            url = "https://www.maoyan.com/board/4?offset={}".format(offset)
+            url = 'https://www.maoyan.com/board/4?offset={}'.format(offset)
         # 交给调度器
             yield scrapy.Request(url=url, callback=self.parse)
 
     def parse(self, response):
         print(response)
-
         # 加载items对象
         item = MaoyanMysqlItem()
         # 获取电影列表
@@ -34,7 +33,6 @@ class MaoyanMysqlSpider(scrapy.Spider):
     def zhengli(self, time):
         if len(time) < 10:
              time = time + '-01'
-
              time = self.zhengli(time)
         return time
 
