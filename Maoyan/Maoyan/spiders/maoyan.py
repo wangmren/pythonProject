@@ -11,5 +11,5 @@ class MaoyanSpider(scrapy.Spider):
         result = response.xpath('/html/head/title/text()').get()
         print('*' * 50)
         print(result)
-        print('*' * 50)
+        print('*' * 40)
 
