@@ -7,15 +7,16 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
-
 import os
+
+
 class DoumuPipeline:
     def process_item(self, item, spider):
-        print(item['title'],item['name'])
-        dir='{}/'.format(item['title'])
+        print(item['title'], item['name'])
+        dir = '{}/'.format(item['title'])
         if not os.path.exists(dir):
             os.makedirs(dir)
-        filename=dir+item['name']+'.txt'
-        with open(filename,'w',encoding='utf-8') as f:
+        filename = dir + item['name'] + '.txt'
+        with open(filename, 'w', encoding='utf-8') as f:
             f.write(item['content'])
         return item

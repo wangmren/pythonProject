@@ -73,8 +73,8 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   "Maoyan_Mysql.pipelines.MaoyanMysqlPipeline": 300,
-   "Maoyan_Mysql.pipelines.Maoyan_MysqlPipenline":200,
+    "Maoyan_Mysql.pipelines.MaoyanMysqlPipeline": 300,
+   "Maoyan_Mysql.pipelines.Maoyan_MysqlPipenline":500,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

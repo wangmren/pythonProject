@@ -22,7 +22,6 @@ class Maoyan_MysqlPipenline(object):
         self.db=pymysql.connect(
             host=MYSQL_HOST,
             user=MYSQL_USER,
-            port=3306,
             password=MYSQL_PWD,
             database=MYSQL_DB,
             charset=MYSQL_CHAR
